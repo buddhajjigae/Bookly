@@ -1,9 +1,6 @@
 import boto3
 import json
 import urllib3
-from botocore.vendored import requests
-import struct
-from urllib.parse import urlencode
 from urllib import request
 
 dynamo = boto3.client('dynamodb')
