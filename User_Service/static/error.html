@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Gitpull Worldwide E6156 - Topics in SW Engineering: Cloud Computing</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-4 mb-5">
+            <h2>Error :/ Your account hasn't been activated T_T</h2>
+            <p id="email"></p>
+            <p id="first-name"></p>
+            <p id="last-name"></p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+
+    var results = document.getElementById('results');
+
+    const email = urlParams.get('email')
+    const firstName = urlParams.get('first_name')
+    const lastName = urlParams.get('last_name')
+
+    $("#email").html("<b>" + email + "</b>");
+    $("#first-name").html("<b>" + firstName + "</b>");
+    $("#last-name").html("<b>" + lastName + "</b>");
+
+
+</script>
+</body>
+
+</html>
