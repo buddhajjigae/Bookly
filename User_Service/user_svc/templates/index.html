@@ -1,0 +1,52 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+    rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<!-- Javascript -->
+<script>
+$(function() {
+$('#address-1').autocomplete({
+    source: function (request, response) {
+        $.getJSON("http://127.0.0.1:8000/api/autocompleteSmartyStreets/?address=" + request.term, function (data) {
+            response($.each(data, function (value, key) {
+                return value;
+            }));
+        });
+    },
+    minLength: 2,
+    delay: 100
+});
+
+$('#verify').click (function() {
+    var user_inp = $('#address-1').val();
+    $.getJSON("http://127.0.0.1:8000/api/verifyInputAddress/?text=" + user_inp, function (data) {
+        alert(data);
+        });
+});
+
+
+
+});
+</script>
+<style>
+    .ui-widget {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+    }
+</style>
+<title>Address Autocomplete</title>
+</head>
+<body>
+<h3>What is your home address?</h3>
+<div class="ui-widget">
+    <input id = "address-1" style="width:100%">
+    <button type="button" id="verify">Verify</button>
+</div>
+
+</body>
+</html>
